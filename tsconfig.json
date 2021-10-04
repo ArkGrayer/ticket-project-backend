@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "commonjs",
+		"moduleResolution": "Node",
+		"outDir": "dist",
+		"rootDir": "src",
+		"lib": ["ES2020", "ES2020.String"],
+		"strict": true,
+		"declaration": true,
+		"noUnusedLocals": true,
+		"removeComments": false,
+		"noUnusedParameters": true,
+		"strictPropertyInitialization": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		"incremental": true,
+		"types": ["node"],
+		"baseUrl": "src"
+	},
+	"include": ["src/**/*.ts"]
+}
