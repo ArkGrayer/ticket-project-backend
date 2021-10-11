@@ -34,5 +34,6 @@
 	// Color of Comments
 	"editor.tokenColorCustomizations": {
 		"comments": "#00a0eb"
-	}
+	},
+	"cSpell.words": ["typeorm"]
 }
