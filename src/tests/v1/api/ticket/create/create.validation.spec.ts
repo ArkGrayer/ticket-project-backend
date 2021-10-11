@@ -1,5 +1,5 @@
-import { CreateParams } from "v1/api/ticket/create/create.service";
-import { validation } from "v1/api/ticket/create/create.validation";
+import { CreateParams } from "v1/api/ticket/create/helpers/create.service";
+import { validation } from "v1/api/ticket/create/helpers/create.validation";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { TicketTypeEnum, TicketTypeValues } from "v1/enum/ticket-type";
 import { CustomError } from "v1/utils/error";

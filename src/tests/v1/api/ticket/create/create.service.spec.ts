@@ -1,5 +1,5 @@
 import { ticketMock } from "tests/mocks/ticket/index";
-import { create } from "v1/api/ticket/create/create.service";
+import { create } from "v1/api/ticket/create/helpers/create.service";
 import { TicketTypeEnum } from "v1/enum/ticket-type";
 
 describe("create service", () => {

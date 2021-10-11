@@ -35,5 +35,9 @@
 	"editor.tokenColorCustomizations": {
 		"comments": "#00a0eb"
 	},
-	"cSpell.words": ["typeorm"]
+	"cSpell.words": ["typeorm"],
+
+	"files.associations": {
+		".lintstagedrc": "json"
+	}
 }

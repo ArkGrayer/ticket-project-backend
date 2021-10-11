@@ -1,6 +1,6 @@
 import { TicketTypeEnum } from "v1/enum/ticket-type";
-import { TicketRepository } from "../ticket.entity";
-import { generateCode } from "./helpers/generate-code";
+import { TicketRepository } from "../../ticket.entity";
+import { generateCode } from "./generate-code";
 
 interface Injectables {
 	ticketRepository: TicketRepository;
