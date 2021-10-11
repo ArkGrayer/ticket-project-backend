@@ -2,6 +2,7 @@
 	"root": true,
 	"extends": [
 		"@techmmunity/eslint-config/common", // The common module always should be extended!
-		"@techmmunity/eslint-config/typescript"
+		"@techmmunity/eslint-config/typescript",
+		"@techmmunity/eslint-config/jest"
 	]
 }
