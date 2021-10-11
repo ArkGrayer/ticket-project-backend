@@ -8,17 +8,15 @@
 		"lib": ["ES2020", "ES2020.String"],
 		"strict": true,
 		"declaration": true,
-		"noUnusedLocals": true,
 		"removeComments": false,
-		"noUnusedParameters": true,
 		"strictPropertyInitialization": false,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"allowSyntheticDefaultImports": true,
 		"sourceMap": true,
 		"incremental": true,
-		"types": ["node"],
+		"types": ["node", "jest"],
 		"baseUrl": "src"
 	},
-	"include": ["src/**/*.ts"]
+	"include": ["src/**/*.ts", "jest.config.js"]
 }
