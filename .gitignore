@@ -54,3 +54,4 @@ docker/
 tsconfig*
 !tsconfig.json
 !tsconfig.build.json
+.nvmrc
