@@ -26,4 +26,6 @@ export const listTicketByPage = async (
 			StatusCodeEnum.NOT_FOUND,
 		);
 	}
+
+	return listOfTickets;
 };
