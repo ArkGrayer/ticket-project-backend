@@ -2,15 +2,10 @@ import { TicketTypeEnum } from "v1/enum/ticket-type";
 
 export interface CreateDoc {
 	code?: string;
-
 	name: string;
-
 	description: string;
-
 	type: TicketTypeEnum;
-
 	discountValue: number;
-
 	expirationDate: Date;
 }
 
@@ -22,9 +17,9 @@ export const doc = ({
 	discountValue,
 	expirationDate,
 }: CreateDoc) => ({
-	id: "A chiquinha, o quico, DIABO1",
+	id: "af7asf87",
 	isValid: true,
-	code: code || "JOÃO NINGUÉM",
+	code: code || "a90f8as09fa78",
 	name,
 	description,
 	type,

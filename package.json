@@ -1,14 +1,17 @@
 {
-	"name": "ticket-project",
+	"name": "base-project-backend",
 	"version": "1.0.0",
 	"main": "index.js",
 	"license": "MIT",
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.0.1",
+		"@types/bcrypt": "^5.0.0",
 		"@types/bson": "^4.2.0",
 		"@types/jest": "^27.0.2",
+		"@types/jsonwebtoken": "^8.5.5",
 		"@types/mongodb": "^3.6.20",
 		"@types/node": "^16.10.2",
+		"@vercel/ncc": "^0.31.1",
 		"dotenv": "^10.0.0",
 		"eslint": "^7.32.0",
 		"husky": "^7.0.2",
@@ -22,7 +25,10 @@
 		"typescript": "^4.4.3"
 	},
 	"dependencies": {
+		"bcrypt": "^5.0.1",
 		"fastify": "^3.22.0",
+		"fastify-plugin": "^3.0.0",
+		"jsonwebtoken": "^8.5.1",
 		"mongodb": "^3.7.2",
 		"reflect-metadata": "^0.1.13",
 		"typeorm": "^0.2.38",
@@ -35,6 +41,8 @@
 		"test": "jest",
 		"test:cov": "jest --coverage",
 		"format": "eslint . --fix --quiet",
-		"lint": "eslint . --quiet"
+		"lint": "eslint . --quiet",
+		"build": "ncc build src/index.ts -o dist -m",
+		"start": "node index.js"
 	}
 }

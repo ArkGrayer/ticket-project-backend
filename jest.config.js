@@ -13,6 +13,7 @@ module.exports = {
 		"!v*/config/*.ts",
 		"!v*/enum/*.ts",
 		"!index.ts",
+		"!v*/utils/encrypt/compare.ts",
 	],
 	setupFiles: ["./tests/setup.ts"],
 	coverageDirectory: "../coverage",

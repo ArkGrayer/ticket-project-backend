@@ -1,11 +1,11 @@
-import { ticketMock } from "tests/mocks/ticket/index";
-import { findByCode } from "v1/api/ticket/create/find-by-code/find-by-code.service";
+import { ticketMock } from "tests/mocks/ticket";
+import { findByCode } from "v1/api/ticket/find-by-code/find-by-code.service";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { TicketTypeEnum } from "v1/enum/ticket-type";
 import { CustomError } from "v1/utils/error";
 
 describe("findByCode service", () => {
-	const validCode = "fADFSW#$%5454654w3f";
+	const validCode = "aa0d8a";
 
 	let ticketMockDoc: any;
 
@@ -13,14 +13,14 @@ describe("findByCode service", () => {
 		ticketMockDoc = ticketMock.doc({
 			code: validCode,
 			name: "generic",
-			description: "tenso",
+			description: "bla bla bla",
 			type: TicketTypeEnum.PERCENTAGE,
 			discountValue: 50,
 			expirationDate: new Date(),
 		});
 	});
 
-	describe("successful", () => {
+	describe("Successful", () => {
 		it("should return a ticket", async () => {
 			let result: any;
 

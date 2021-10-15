@@ -1,6 +1,6 @@
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { CustomError } from "v1/utils/error";
-import { TicketRepository } from "../../ticket.entity";
+import { TicketRepository } from "../ticket.entity";
 
 interface Injectables {
 	ticketRepository: TicketRepository;
@@ -26,3 +26,5 @@ export const findByCode = async (
 
 	return ticket;
 };
+
+export type FindByCodeType = typeof findByCode;

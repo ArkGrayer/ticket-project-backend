@@ -1,11 +1,11 @@
 import { getRepository } from "typeorm";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { Route } from "v1/types/route";
-import { TicketEntity } from "../../ticket.entity";
-import { listTicketByPage } from "./list-tickets-by-page.service";
+import { TicketEntity } from "../ticket.entity";
+import { listTicketsByPage } from "./list-tickets-by-page.service";
 import { validation } from "./list-tickets-by-page.validation";
 
-export const listTicketByPageController: Route = async (request, reply) => {
+export const listTicketsByPageController: Route = async (request, reply) => {
 	let result;
 
 	try {
@@ -13,7 +13,7 @@ export const listTicketByPageController: Route = async (request, reply) => {
 
 		const ticketRepository = getRepository(TicketEntity);
 
-		result = await listTicketByPage(
+		result = await listTicketsByPage(
 			{
 				ticketRepository,
 			},

@@ -1,26 +1,37 @@
+import { compare } from "bcrypt";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { CustomError } from "v1/utils/error";
+import { sign } from "v1/utils/jwt/sign";
+import { UserRepository } from "../user.entity";
 
-type Injectables = undefined;
+interface Injectables {
+	userRepository: UserRepository;
+}
 
 export interface LoginParams {
 	email: string;
 	password: string;
 }
 
-export const login = (
-	_injectables: Injectables,
+export const login = async (
+	{ userRepository }: Injectables,
 	{ email, password }: LoginParams,
 ) => {
-	if (email !== "test@test.com") {
-		throw new CustomError("Invalid email", StatusCodeEnum.BAD_REQUEST);
+	const userData = await userRepository.findOne({
+		where: { email },
+	});
+
+	if (!userData) {
+		throw new CustomError("Forbidden", StatusCodeEnum.FORBIDDEN);
 	}
 
-	if (password !== "123") {
-		throw new CustomError("Invalid password", StatusCodeEnum.BAD_REQUEST);
+	const isTheSamePassword = await compare(password, userData.password);
+
+	if (!isTheSamePassword) {
+		throw new CustomError("Forbidden", StatusCodeEnum.FORBIDDEN);
 	}
 
 	return {
-		authCode: "foo",
+		authCode: sign(userData),
 	};
 };

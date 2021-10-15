@@ -2,9 +2,9 @@ import { getRepository } from "typeorm";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { Route } from "v1/types/route";
 import { TicketEntity } from "../ticket.entity";
-import { countTickets } from "../count-tickets/count-tickets.service";
+import { countTickets } from "./count-tickets.service";
 
-export const ticketCountsController: Route = async (_request, reply) => {
+export const countTicketsController: Route = async (_request, reply) => {
 	let result;
 
 	try {

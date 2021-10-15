@@ -1,28 +1,29 @@
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { CustomError } from "v1/utils/error";
-import { TicketRepository } from "../../ticket.entity";
+import { isEmptyArray } from "v1/utils/is-empty-array";
+import { TicketRepository } from "../ticket.entity";
 import { paginateTickets } from "./helpers/paginate-tickets";
 
 interface Injectables {
 	ticketRepository: TicketRepository;
 }
 
-export interface ListTicketByPageParams {
+export interface ListTicketsByPageParams {
 	page?: number;
 }
 
-export const listTicketByPage = async (
+export const listTicketsByPage = async (
 	{ ticketRepository }: Injectables,
-	{ page }: ListTicketByPageParams,
+	{ page }: ListTicketsByPageParams,
 ) => {
 	const listOfTickets = await ticketRepository.find({
 		skip: paginateTickets(page),
 		take: 10,
 	});
 
-	if (!listOfTickets.length) {
+	if (isEmptyArray(listOfTickets)) {
 		throw new CustomError(
-			"No tickets found for this page",
+			"No ticket found for this page.",
 			StatusCodeEnum.NOT_FOUND,
 		);
 	}
