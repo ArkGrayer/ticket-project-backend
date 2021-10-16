@@ -1,19 +1,19 @@
-import { CreateParams } from "v1/api/ticket/create/helpers/create.service";
-import { validation } from "v1/api/ticket/create/helpers/create.validation";
+import { CreateParams } from "v1/api/ticket/create/create.service";
+import { validation } from "v1/api/ticket/create/create.validation";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { TicketTypeEnum, TicketTypeValues } from "v1/enum/ticket-type";
 import { CustomError } from "v1/utils/error";
 
-describe("Create validation", () => {
-	const validCode = "f1w3f";
+describe("create validation", () => {
+	const validCode = "aa0d8a";
 	const validName = "generic";
-	const validDescription = "tenso";
+	const validDescription = "bla bla bla";
 	const validType = TicketTypeEnum.PERCENTAGE;
 	const validDiscountValue = 50;
 	const validExpirationDate = new Date();
 
-	describe("Successful validation", () => {
-		it("should return a validated params", async () => {
+	describe("Successful", () => {
+		it("should return validated params", async () => {
 			let result: any;
 
 			try {
@@ -64,8 +64,8 @@ describe("Create validation", () => {
 		});
 	});
 
-	describe("Invalid Params", () => {
-		it("should throw a CustomError with invalid type params message", async () => {
+	describe("Invalid params", () => {
+		it("should throw a CustomError with invalid type param message", async () => {
 			let result: any;
 
 			try {
@@ -73,7 +73,7 @@ describe("Create validation", () => {
 					code: validCode,
 					name: validName,
 					description: validDescription,
-					type: "type" as any,
+					type: "test" as any,
 					discountValue: validDiscountValue,
 					expirationDate: validExpirationDate,
 				});
@@ -90,7 +90,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a invalid ExpirationDate", async () => {
+		it("should throw a CustomError with a invalid expirationDate param message", async () => {
 			let result: any;
 
 			try {
@@ -100,7 +100,7 @@ describe("Create validation", () => {
 					description: validDescription,
 					type: validType,
 					discountValue: validDiscountValue,
-					expirationDate: "asfasd" as any,
+					expirationDate: "fa8s97f" as any,
 				});
 			} catch (err: any) {
 				result = err;
@@ -108,14 +108,14 @@ describe("Create validation", () => {
 
 			expect(result instanceof CustomError).toBeTruthy();
 			expect(result.message).toBe(
-				'expirationDate must be a `date` type, but the final value was: `Invalid Date` (cast from the value `"asfasd"`).',
+				'expirationDate must be a `date` type, but the final value was: `Invalid Date` (cast from the value `"fa8s97f"`).',
 			);
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 	});
 
 	describe("Undefined params", () => {
-		it("should throw a CustomError with a undefined name parameter", async () => {
+		it("should throw a CustomError with a undefined name param message", async () => {
 			let result: any;
 
 			try {
@@ -135,7 +135,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a undefined description parameter", async () => {
+		it("should throw a CustomError with a undefined description param message", async () => {
 			let result: any;
 
 			try {
@@ -155,7 +155,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a undefined type parameter", async () => {
+		it("should throw a CustomError with a undefined type param message", async () => {
 			let result: any;
 
 			try {
@@ -175,7 +175,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a undefined discountValue parameter", async () => {
+		it("should throw a CustomError with a undefined discountValue param message", async () => {
 			let result: any;
 
 			try {
@@ -195,7 +195,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a undefined expirationDate parameter", async () => {
+		it("should throw a CustomError with a undefined expirationDate param message", async () => {
 			let result: any;
 
 			try {
@@ -216,8 +216,8 @@ describe("Create validation", () => {
 		});
 	});
 
-	describe("Invalid Type", () => {
-		it("should throw a CustomError with a Invalid code type message", async () => {
+	describe("Invalid type", () => {
+		it("should return a CustomError with a invalid code type message", async () => {
 			let result: any;
 
 			try {
@@ -240,13 +240,13 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a invalid name type message", async () => {
+		it("should return a CustomError with a invalid name type message", async () => {
 			let result: any;
 
 			try {
 				result = await validation({
 					code: validCode,
-					name: 425 as any,
+					name: 42 as any,
 					description: validDescription,
 					type: validType,
 					discountValue: validDiscountValue,
@@ -258,35 +258,35 @@ describe("Create validation", () => {
 
 			expect(result instanceof CustomError).toBeTruthy();
 			expect(result.message).toBe(
-				"name must be a `string` type, but the final value was: `425`.",
+				"name must be a `string` type, but the final value was: `42`.",
 			);
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a invalid description type message", async () => {
+		it("should return a CustomError with a invalid description type message", async () => {
 			let result: any;
 
 			try {
 				result = await validation({
 					code: validCode,
 					name: validName,
-					description: 4565 as any,
+					description: 42 as any,
 					type: validType,
 					discountValue: validDiscountValue,
 					expirationDate: validExpirationDate,
 				});
-			} catch (err) {
+			} catch (err: any) {
 				result = err;
 			}
 
 			expect(result instanceof CustomError).toBeTruthy();
 			expect(result.message).toBe(
-				"description must be a `string` type, but the final value was: `4565`.",
+				"description must be a `string` type, but the final value was: `42`.",
 			);
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a Invalid type message", async () => {
+		it("should return a CustomError with a invalid type message", async () => {
 			let result: any;
 
 			try {
@@ -298,7 +298,7 @@ describe("Create validation", () => {
 					discountValue: validDiscountValue,
 					expirationDate: validExpirationDate,
 				});
-			} catch (err) {
+			} catch (err: any) {
 				result = err;
 			}
 
@@ -309,7 +309,7 @@ describe("Create validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a Invalid DiscountValue message", async () => {
+		it("should return a CustomError with a invalid discountValue type message", async () => {
 			let result: any;
 
 			try {
@@ -318,7 +318,7 @@ describe("Create validation", () => {
 					name: validName,
 					description: validDescription,
 					type: validType,
-					discountValue: "asfsad4" as any,
+					discountValue: "test" as any,
 					expirationDate: validExpirationDate,
 				});
 			} catch (err: any) {
@@ -327,12 +327,12 @@ describe("Create validation", () => {
 
 			expect(result instanceof CustomError).toBeTruthy();
 			expect(result.message).toBe(
-				'discountValue must be a `number` type, but the final value was: `"asfsad4"`.',
+				'discountValue must be a `number` type, but the final value was: `"test"`.',
 			);
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw a CustomError with a Invalid ExpirationDate message", async () => {
+		it("should return a CustomError with a invalid expirationDate type message", async () => {
 			let result: any;
 
 			try {
@@ -344,7 +344,7 @@ describe("Create validation", () => {
 					discountValue: validDiscountValue,
 					expirationDate: {} as any,
 				});
-			} catch (err) {
+			} catch (err: any) {
 				result = err;
 			}
 

@@ -4,8 +4,6 @@ import "reflect-metadata";
 import { setUserController } from "v1/api/user/user.controller";
 import { setTicketController } from "v1/api/ticket/ticket.controller";
 
-const PORT = 3000;
-
 const server = async () => {
 	if (process.env.NODE_ENV !== "production") {
 		const { config } = await import("dotenv");
@@ -21,7 +19,7 @@ const server = async () => {
 	setUserController(fastify);
 	setTicketController(fastify);
 
-	fastify.listen(PORT, err => {
+	fastify.listen(process.env.PORT!, process.env.HOST!, err => {
 		if (err) throw err;
 	});
 };

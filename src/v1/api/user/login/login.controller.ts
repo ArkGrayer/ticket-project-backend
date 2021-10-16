@@ -1,5 +1,7 @@
+import { getRepository } from "typeorm";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { Route } from "v1/types/route";
+import { UserEntity } from "../user.entity";
 import { login } from "./login.service";
 import { validation } from "./login.validation";
 
@@ -9,7 +11,9 @@ export const loginController: Route = async (request, reply) => {
 	try {
 		const validatedParams = await validation(request.body as any);
 
-		result = login(undefined, validatedParams);
+		const userRepository = getRepository(UserEntity);
+
+		result = await login({ userRepository }, validatedParams);
 	} catch (err: any) {
 		return reply.status(err.statusCode || StatusCodeEnum.INTERNAL).send({
 			error: err.message,

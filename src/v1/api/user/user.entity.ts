@@ -1,6 +1,6 @@
+import { Column, Entity, ObjectIdColumn, Repository } from "typeorm";
 import { ObjectId } from "mongodb";
 import { RepositoryKeys } from "tests/mocks/repository";
-import { Column, Entity, ObjectIdColumn, Repository } from "typeorm";
 
 @Entity()
 export class UserEntity {

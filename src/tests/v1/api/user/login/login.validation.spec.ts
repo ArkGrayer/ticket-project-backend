@@ -47,7 +47,7 @@ describe("login validation", () => {
 	});
 
 	describe("Undefined params", () => {
-		it("should throw an error with a undefined email message", async () => {
+		it("should throw a CustomError with a undefined email param message", async () => {
 			let result: any;
 
 			try {
@@ -63,7 +63,7 @@ describe("login validation", () => {
 			expect(result.statusCode).toBe(StatusCodeEnum.BAD_REQUEST);
 		});
 
-		it("should throw an error with a undefined password message", async () => {
+		it("should throw a CustomError with a undefined password param message", async () => {
 			let result: any;
 
 			try {

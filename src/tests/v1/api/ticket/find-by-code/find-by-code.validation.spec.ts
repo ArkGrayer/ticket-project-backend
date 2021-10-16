@@ -1,14 +1,13 @@
-import { FindByCodeParams } from "v1/api/ticket/create/find-by-code/find-by-code.service";
-import { validation } from "v1/api/ticket/create/find-by-code/find-by-code.validation";
+import { FindByCodeParams } from "v1/api/ticket/find-by-code/find-by-code.service";
+import { validation } from "v1/api/ticket/find-by-code/find-by-code.validation";
 import { StatusCodeEnum } from "v1/enum/status-code";
-import { TicketTypeValues } from "v1/enum/ticket-type";
 import { CustomError } from "v1/utils/error";
 
 describe("findByCode validation", () => {
-	const validCode = "fADFSW#$%5454654w3f";
+	const validCode = "aa0d8a";
 
-	describe("Successful validation", () => {
-		it("should return a validated params", async () => {
+	describe("Successful", () => {
+		it("should return validated params", async () => {
 			let result: any;
 
 			try {
@@ -26,7 +25,7 @@ describe("findByCode validation", () => {
 	});
 
 	describe("Undefined params", () => {
-		it("should throw a CustomError with a undefined code parameter", async () => {
+		it("should throw a CustomError with a undefined code param message", async () => {
 			let result: any;
 
 			try {
@@ -41,8 +40,8 @@ describe("findByCode validation", () => {
 		});
 	});
 
-	describe("Invalid Type", () => {
-		it("should throw a CustomError with a Invalid code type message", async () => {
+	describe("Invalid type", () => {
+		it("should return a CustomError with a invalid code type message", async () => {
 			let result: any;
 
 			try {
