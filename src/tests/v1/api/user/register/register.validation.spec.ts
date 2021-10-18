@@ -1,11 +1,11 @@
-import { LoginParams } from "v1/api/user/login/login.service";
-import { validation } from "v1/api/user/login/login.validation";
+import { RegisterParams } from "v1/api/user/register/register.service";
+import { validation } from "v1/api/user/register/register.validation";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { CustomError } from "v1/utils/error";
 
-describe("login validation", () => {
-	const validEmail = "qualquer@email.com";
-	const validPassword = "8F7A8FA";
+describe("register validation", () => {
+	const validEmail = "test@new.com";
+	const validPassword = "a87da98s6";
 
 	describe("Successful", () => {
 		it("should return validated params", async () => {
@@ -53,7 +53,7 @@ describe("login validation", () => {
 			try {
 				result = await validation({
 					password: validPassword,
-				} as LoginParams);
+				} as RegisterParams);
 			} catch (err: any) {
 				result = err;
 			}
@@ -69,7 +69,7 @@ describe("login validation", () => {
 			try {
 				result = await validation({
 					email: validEmail,
-				} as LoginParams);
+				} as RegisterParams);
 			} catch (err: any) {
 				result = err;
 			}

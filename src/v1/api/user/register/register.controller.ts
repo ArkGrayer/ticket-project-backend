@@ -2,10 +2,10 @@ import { getRepository } from "typeorm";
 import { StatusCodeEnum } from "v1/enum/status-code";
 import { Route } from "v1/types/route";
 import { UserEntity } from "../user.entity";
-import { login } from "./login.service";
-import { validation } from "./login.validation";
+import { register } from "./register.service";
+import { validation } from "./register.validation";
 
-export const loginController: Route = async (request, reply) => {
+export const registerController: Route = async (request, reply) => {
 	let result;
 
 	try {
@@ -13,7 +13,7 @@ export const loginController: Route = async (request, reply) => {
 
 		const userRepository = getRepository(UserEntity);
 
-		result = await login({ userRepository }, validatedParams);
+		result = await register({ userRepository }, validatedParams);
 	} catch (err: any) {
 		return reply.status(err.statusCode || StatusCodeEnum.INTERNAL).send({
 			error: err.message,
