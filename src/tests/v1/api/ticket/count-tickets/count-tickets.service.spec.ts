@@ -16,7 +16,7 @@ describe("countTickets service", () => {
 				result = err;
 			}
 
-			expect(result).toStrictEqual(1);
+			expect(result).toBe(1);
 		});
 	});
 });

@@ -1,5 +1,5 @@
 {
-	"name": "ticket-project",
+	"name": "base-project-backend",
 	"version": "1.0.0",
 	"main": "index.js",
 	"license": "MIT",
@@ -41,6 +41,8 @@
 		"test": "jest",
 		"test:cov": "jest --coverage",
 		"format": "eslint . --fix --quiet",
-		"lint": "eslint . --quiet"
+		"lint": "eslint . --quiet",
+		"build": "ncc build src/index.ts -o dist -m",
+		"start": "node index.js"
 	}
 }
