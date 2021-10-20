@@ -3,6 +3,7 @@ import { connect } from "v1/config/mongodb";
 import "reflect-metadata";
 import { setUserController } from "v1/api/user/user.controller";
 import { setTicketController } from "v1/api/ticket/ticket.controller";
+import fastifyCors from "fastify-cors";
 
 const server = async () => {
 	if (process.env.NODE_ENV !== "production") {
@@ -13,6 +14,8 @@ const server = async () => {
 	const fastify = Fastify({
 		logger: true,
 	});
+
+	fastify.register(fastifyCors);
 
 	await connect();
 
