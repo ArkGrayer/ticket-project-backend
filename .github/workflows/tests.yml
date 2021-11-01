@@ -17,5 +17,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          JWT_PRIVATE_KEY=ABC
-          yarn test:cov
+          JWT_PRIVATE_KEY=ABC yarn test:cov
