@@ -4,7 +4,7 @@
 # Ticket Project BackEnd
 
 [![Style Guide: Techmmunity](https://img.shields.io/badge/style%20guide-TECHMMUNITY-01d2ce?style=for-the-badge)](https://github.com/techmmunity/eslint-config)
-[![Coverage Status](https://coveralls.io/repos/github/ArkGrayer/ticket-project-backend/badge.svg?branch=master)](https://coveralls.io/github/ArkGrayer/ticket-project-backend?branch=master)
+[![Coverage](https://img.shields.io/coveralls/github/ArkGrayer/ticket-project-backend/master?style=for-the-badge)](https://coveralls.io/github/ArkGrayer/ticket-project-backend?branch=master)
 
 </div>
 
