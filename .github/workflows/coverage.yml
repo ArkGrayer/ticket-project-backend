@@ -19,6 +19,10 @@ jobs:
         run: |
           yarn test:cov
 
+       - name: Run Tests
+        run: |
+          JWT_PRIVATE_KEY=ABC yarn test
+
       - name: Collect Coverage
         uses: coverallsapp/github-action@v1.1.2
         with:
