@@ -17,11 +17,11 @@ jobs:
 
       - name: Run Tests
         run: |
-          yarn test:cov
+          JWT_PRIVATE_KEY=J4T'n!en3]=QE6SR yarn test
 
-       - name: Run Tests
+      - name: Run Tests
         run: |
-          JWT_PRIVATE_KEY=ABC yarn test
+          yarn test:cov
 
       - name: Collect Coverage
         uses: coverallsapp/github-action@v1.1.2
